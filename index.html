@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTMX and JavaScript Project</title>
+    <!-- Include HTMX via CDN -->
+    <script src="https://unpkg.com/htmx.org@2.0.2/dist/htmx.js" integrity="sha384-yZq+5izaUBKcRgFbxgkRYwpHhHHCpp5nseXp0MEQ1A4MTWVMnqkmcuFez8x5qfxr" crossorigin="anonymous"></script>
+    <!-- Optional: Your custom JavaScript -->
+    <script defer src="main.js"></script>
+</head>
+<body>
+    <h1>HTMX and JavaScript Example</h1>
+
+    <!-- HTMX button triggering an HTTP GET request -->
+    <button hx-get="/hello" hx-trigger="click" hx-target="#htmxResult">Click Me (HTMX)</button>
+    <div id="htmxResult"></div>
+
+    <!-- JavaScript button triggering a JavaScript event -->
+    <button id="jsButton">Click Me (JavaScript)</button>
+    <div id="jsResult"></div>
+
+    <!-- HTMX with JavaScript integration -->
+    <script>
+        document.getElementById('jsButton').addEventListener('click', () => {
+            document.getElementById('jsResult').textContent = "Hello from JavaScript!";
+        });
+    </script>
+</body>
+</html>
